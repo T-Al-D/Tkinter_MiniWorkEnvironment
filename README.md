@@ -1,4 +1,4 @@
-# Tkinter_IWE
+# Tkinter_MiniWE
 A small integrated work environment: A little project with python tkiner.
 
 Unfinished!
