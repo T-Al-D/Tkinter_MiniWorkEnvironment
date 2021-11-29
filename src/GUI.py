@@ -24,8 +24,8 @@ class GUI(tk.Tk):
     def get_gui():
         return gui
 
-    def add_label(self, string, c_span, row, column, pad_x=0, pad_y=0, stick="ew", font=("Calibri", 12, "bold")):
-        label = Label(self, text=str(string), font=font)
+    def add_label(self, string, text_var, c_span, row, column, pad_x=0, pad_y=0, stick="ew", font=("Calibri", 12, "bold")):
+        label = Label(self, text=str(string), textvariable=text_var, font=font)
         label.grid(columnspan=c_span, row=row, column=column, padx=pad_x, pady=pad_y, sticky=stick)
         return label
 
