@@ -56,7 +56,7 @@ class GUI(tk.Tk):
         check_box.grid(row=row, column=column, padx=pad_x, pady=pad_y, sticky=stick)
         return check_box
 
-    # scrollbar is created and a list is bound in it
+    # listbox is created and a scrollbar is bound in it
     def add_scroll_list(self, width, row_span, c_span, row, column, pad_x=0, pad_y=0, stick="ew"):
         scrollbar = Scrollbar(self, orient=VERTICAL)
         scrollbar.grid(rowspan=row_span, columnspan=c_span, row=row, column=column + 1, padx=0, pady=pad_y, sticky="ns")
@@ -64,6 +64,15 @@ class GUI(tk.Tk):
         listbox.grid(rowspan=row_span, columnspan=c_span, row=row, column=column, padx=pad_x, pady=pad_y, sticky=stick)
         scrollbar.config(command=listbox.yview)
         return listbox
+
+    # scrollbar is created and a list is bound in it
+    def add_text_box(self, width, height, row_span, c_span, row, column, pad_x=0, pad_y=0, stick="ew"):
+        scrollbar = Scrollbar(self, orient=VERTICAL)
+        scrollbar.grid(rowspan=row_span, columnspan=c_span, row=row, column=column + 3, padx=0, pady=pad_y, sticky="ns")
+        textbox = Text(self, width=width, height=height, yscrollcommand=scrollbar.set)
+        textbox.grid(rowspan=row_span, columnspan=c_span, row=row, column=column, padx=pad_x, pady=pad_y, sticky=stick)
+        scrollbar.config(command=textbox.yview)
+        return textbox
 
     # display an image on label
     def display_img(self, file_name, r_span, c_span, row, column, pad_x=0, pad_y=0, stick="ew"):
@@ -83,11 +92,11 @@ class GUI(tk.Tk):
     def display_date(self, span_of_column, row, column, pad_x=0, pad_y=0, stick="ew", font=("Calibri", 12, "bold")):
         now = datetime.datetime.now()
         now_str = now.strftime(str("%d.%m.%y"))
-        self.add_label(now_str, span_of_column, row, column, pad_x, pad_y, stick, font)
+        self.add_label(now_str, None, span_of_column, row, column, pad_x, pad_y, stick, font)
 
     # label that changes with drop menu, value is needed for the global variable to change
     def add_drop_menu_label(self, value):
-        self.add_label(self.drop_down_menu_option.get(), 1, 2, 3, 0, 0, "ew")
+        self.add_label(self.drop_down_menu_option.get(), None, 1, 2, 3, 0, 0, "ew")
 
 
 gui = GUI()

@@ -29,18 +29,17 @@ class Calculator:
         self.button_8 = GUI.add_button(gui, "8", lambda: self.input_num(8), "black", "white", fifth_row, 4, 0, 0)
         self.button_9 = GUI.add_button(gui, "9", lambda: self.input_num(9), "black", "white", fifth_row, 5, 0, 0)
         self.button_0 = GUI.add_button(gui, "0", lambda: self.input_num(0), "black", "white", sixth_row, 5, 0, 0)
-        self.plus_button = GUI.add_button(gui, "+", lambda: self.input_operator("+"), "#ff00ea", "black",
+        self.plus_button = GUI.add_button(gui, "+", lambda: self.input_operator("+"), "green", "black",
                                           sixth_row, 3, 0, 0)
-        self.minus_button = GUI.add_button(gui, "-", lambda: self.input_operator("-"), "#ff00ea", "black",
+        self.minus_button = GUI.add_button(gui, "-", lambda: self.input_operator("-"), "red", "black",
                                            sixth_row, 4, 0, 0)
-        self.multiplication_button = GUI.add_button(gui, "*", lambda: self.input_operator("*"), "#ff00ea", "black",
+        self.multiplication_button = GUI.add_button(gui, "*", lambda: self.input_operator("*"), "yellow", "black",
                                                     seventh_row, 3, 0, 0)
-        self.division_button = GUI.add_button(gui, "/", lambda: self.input_operator("/"), "#ff00ea", "black",
+        self.division_button = GUI.add_button(gui, "/", lambda: self.input_operator("/"), "blue", "black",
                                               seventh_row, 4, 0, 0)
         self.modulo_button = GUI.add_button(gui, "%", lambda: self.input_operator("%"), "#ff00ea", "black",
                                             seventh_row, 5, 0, 0)
         self.result_button = GUI.add_button(gui, "=", self.display_result, "#412763", "#766c82", eighth_row, 5, 0, 0)
-
 
     # insert into the entry
     def input_num(self, num):
