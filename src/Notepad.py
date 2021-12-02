@@ -15,13 +15,18 @@ class Notepad:
         self.textbox.delete(1.0, END)
 
     def save_text(self):
-        input_text = self.textbox.get(1.0, END)
-        pass
+        text_file = filedialog.asksaveasfilename(title="Select place to save file.", filetypes=[("Text Files", "*.txt")])
+        if text_file != "":
+            text_file = open(text_file, "w")
+            contents = self.textbox.get(1.0, END)
+            text_file.write(contents)
+            text_file.close()
 
     def open_text(self):
-        text_file = filedialog.askopenfilename(title="Select Text File to open", filetypes=[("Text Files", "*.txt")])
+        self.clear_text()
+        text_file = filedialog.askopenfilename(title="Select file to open.", filetypes=[("Text Files", "*.txt")])
         if text_file != "":
-            text_file = open(text_file, "r")
+            text_file = open(text_file, "r+")
             contents = text_file.read()
             self.textbox.insert(END, contents)
             text_file.close()

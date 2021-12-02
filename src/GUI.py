@@ -5,7 +5,7 @@ import tkinter as tk
 
 
 # initialization with tk.Tk__init__(self) all Methods are being inherited
-# this class contains all methods needed to create Objects on the GUI
+# this class contains all methods needed to create Objects on the GUI directly!
 class GUI(tk.Tk):
     entry: Entry  # type hint
 
@@ -15,7 +15,7 @@ class GUI(tk.Tk):
         self.title("Mini Work Environment")  # window title
         self.geometry("1280x720")  # window size
         self.resizable(width=True, height=True)  # resizable window
-        self.config(bg="#06505c")  # background_color
+        self.config(bg="#5d6269")  # background_color
         icon_image = PhotoImage(file="res/icon.png")  # Icon from .png
         self.wm_iconphoto(True, icon_image)
 
@@ -24,12 +24,14 @@ class GUI(tk.Tk):
     def get_gui():
         return gui
 
-    def add_label(self, string, text_var, c_span, row, column, pad_x=0, pad_y=0, stick="ew", font=("Calibri", 12, "bold")):
+    def add_label(self, string, text_var, c_span, row, column, pad_x=0, pad_y=0, stick="ew",
+                  font=("Calibri", 12, "bold")):
         label = Label(self, text=str(string), textvariable=text_var, font=font)
         label.grid(columnspan=c_span, row=row, column=column, padx=pad_x, pady=pad_y, sticky=stick)
         return label
 
-    def add_entry(self, width, b_width, cur, fore_ground, back_ground, c_span, row, column, pad_x=0, pad_y=0, stick="ew"):
+    def add_entry(self, width, b_width, cur, fore_ground, back_ground, c_span, row, column, pad_x=0, pad_y=0,
+                  stick="ew"):
         self.entry = tk.Entry(self, width=width, borderwidth=b_width, fg=fore_ground, bg=back_ground, cursor=cur)
         self.entry.grid(columnspan=c_span, row=row, column=column, padx=pad_x, pady=pad_y, sticky=stick)
         return self.entry
@@ -50,8 +52,9 @@ class GUI(tk.Tk):
         option_menu.grid(row=row, column=column, padx=pad_x, pady=pad_y, sticky=stick)
         return option_menu
 
-    def add_checkbox(self, string, var, row, column, pad_x=0, pad_y=0, stick="ew"):
-        check_box = Checkbutton(self, text=string, variable=str(var), onvalue="YES", offvalue="NO")
+    def add_checkbox(self, string, var, foreground, row, column, pad_x=0, pad_y=0, stick="ew"):
+        check_box = Checkbutton(self, text=string, activebackground="#00ffd9", fg=foreground, variable=str(var),
+                                onvalue="YES", offvalue="NO")
         check_box.deselect()
         check_box.grid(row=row, column=column, padx=pad_x, pady=pad_y, sticky=stick)
         return check_box
@@ -85,7 +88,7 @@ class GUI(tk.Tk):
     def display_time(self, span_of_column, row, column, pad_x=0, pad_y=0, stick="ew", font=("Calibri", 12, "bold")):
         now = datetime.datetime.now()
         now_str = now.strftime(str("%H:%M:%S"))
-        time_label = self.add_label(now_str, span_of_column, row, column, pad_x, pad_y, font)
+        time_label = self.add_label(now_str, None, span_of_column, row, column, pad_x, pad_y, stick, font)
         time_label.after(1000, lambda: self.display_time(span_of_column, row, column, pad_x, pad_y, stick, font))
 
     # display date on label

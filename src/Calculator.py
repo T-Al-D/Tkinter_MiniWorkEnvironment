@@ -39,7 +39,7 @@ class Calculator:
                                               seventh_row, 4, 0, 0)
         self.modulo_button = GUI.add_button(gui, "%", lambda: self.input_operator("%"), "#ff00ea", "black",
                                             seventh_row, 5, 0, 0)
-        self.result_button = GUI.add_button(gui, "=", self.display_result, "#412763", "#766c82", eighth_row, 5, 0, 0)
+        self.result_button = GUI.add_button(gui, "=", self.display_result, "white", "#e0007f", eighth_row, 5, 0, 0)
 
     # insert into the entry
     def input_num(self, num):
