@@ -12,7 +12,7 @@ if __name__ == "__main__":
     gui.add_label("ToDo", None, 2, 0, 1, 5, 5)
     gui.add_label("Calculator", None, 3, 0, 3, 5, 5)
     gui.add_label("Notepad", None, 4, 0, 6, 5, 5)
-    gui.add_label("Database", None, 3, 0, 10, 5, 5)
+    
     gui.display_date(2, 0, 14, 5, 5)
     gui.display_time(2, 0, 16, 5, 5)
 

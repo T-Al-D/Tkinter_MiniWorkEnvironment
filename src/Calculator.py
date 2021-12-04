@@ -121,4 +121,4 @@ class Calculator:
         else:
             messagebox.showwarning("Unknown Error", "Questionable task !")
 
-        self.intermediate_result_text.set(intermediate_result)
+        self.intermediate_result_text.set(str(intermediate_result))
